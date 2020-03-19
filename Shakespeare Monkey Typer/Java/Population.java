@@ -46,6 +46,10 @@ public class Population {
      */
     int perfectScore;
     /**
+     * Maximum current fitness value
+     */
+    float maxFitness;
+    /**
      * java.util.Random
      */
     Random random = new Random();
@@ -85,20 +89,28 @@ public class Population {
      * Perform natural selection using NOC algorithm
      */
     public void naturalSelection() {
-        matingPool.clear();
-
         // Find best fitness score
-        float maxFitness = 0;
         for (int i = 0; i < population.length; i++)
             if (population[i].getFitness() > maxFitness)
                 maxFitness = population[i].getFitness();
+    }
 
-        for (int i = 0; i < population.length; i++) {
+    public DNA acceptReject(float fitness) {
+        int safe = 0;
 
-            int DNACount = (int) (population[i].getFitness() * 100);
-            for (int j = 0; j < DNACount; j++)
-                matingPool.add(population[i]);  // Add selected DNA to mating pool for further process
-        }
+        while (true) {
+            int index = (int)Math.floor(random.nextInt(population.length));
+            DNA partner = population[index];
+
+            float prob = random.nextFloat() * fitness;
+
+            if (prob < partner.getFitness())
+                return partner;
+
+            safe++;
+            if (safe > 10000)
+                return null;
+        }        
     }
 
     /**
@@ -107,16 +119,18 @@ public class Population {
      */
     public void generate() {
 
+        DNA[] newPopulation = new DNA[population.length];
         for (int i = 0; i < population.length; i++) {
 
             // Select two random parent DNAs
-            DNA parent1 = matingPool.get(random.nextInt((matingPool.size())));
-            DNA parent2 = matingPool.get(random.nextInt((matingPool.size())));
+            DNA parent1 = acceptReject(maxFitness);  // Get a weighted random parent using accept reject technic
+            DNA parent2 = acceptReject(maxFitness);  // Get a weighted random parent using accept reject technic
 
             DNA child = parent1.crossover(parent2, target);   // Generate new child
             child.mutate(mutationRate);  // Mutate child
-            population[i] = child;  // Replace with old generation DNA
+            newPopulation[i] = child;  // Replace with old generation DNA
         }
+        population = newPopulation;
         generations++;
     }
 
@@ -168,7 +182,7 @@ public class Population {
             }
 
         // If best score is found, then stop the search
-        if (worldrecord == perfectScore)
+        if (worldrecord >= perfectScore)    // Because we added '0.01' to each fitness, then we cannot use euql anymore
             finished = true;
 
         return population[index].getPhrase();
