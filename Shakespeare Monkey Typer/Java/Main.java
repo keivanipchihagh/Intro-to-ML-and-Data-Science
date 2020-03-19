@@ -1,12 +1,10 @@
 package com.company;
 
-import static java.lang.Math.pow;
-
 public class Main {
 
     final static String target = "to be or not to be";
-    final static float mutationRate = (float)0.01;
-    final static int  populationCount = 100;
+    final static float mutationRate = (float)0.09;
+    final static int  populationCount = 1000;
 
     public static void main(String[] args) {
 
@@ -20,10 +18,8 @@ public class Main {
             System.out.println(population.getBestPhrase() + " - " + population.generations + " - " + population.getAverageFitness());
 
             // Break if search is done.
-            if (population.isFinished()) {
-                System.out.println("Search took " + System.currentTimeMillis() / pow(10, 12) + " seconds to complete.");
+            if (population.isFinished())
                 break;
-            }
         }
 
     }

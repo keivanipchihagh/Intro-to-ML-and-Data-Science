@@ -54,6 +54,7 @@ public class DNA {
             if (genes[i] == target.charAt(i))
                 score++;
         fitness = (float)score / genes.length;  // Percentage format
+        this.fitness = (float)Math.pow(fitness, 2);    // Exp value
     }
 
     /**
