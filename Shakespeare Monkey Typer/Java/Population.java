@@ -75,6 +75,8 @@ public class Population {
         finished = false;
         generations = 0;
         perfectScore = 1;
+
+        getMaxFitness();
     }
 
     /**
@@ -85,15 +87,11 @@ public class Population {
             population[i].calculateFitness(target);
     }
 
-    /**
-     * Perform natural selection using NOC algorithm
-     */
-    public void naturalSelection() {
-        // Find best fitness score
+    void getMaxFitness() {
         for (int i = 0; i < population.length; i++)
             if (population[i].getFitness() > maxFitness)
                 maxFitness = population[i].getFitness();
-    }
+      }
 
     public DNA acceptReject(float fitness) {
         int safe = 0;
@@ -118,6 +116,8 @@ public class Population {
      * Also, replace children with parents to minimize memory usage
      */
     public void generate() {
+
+        getMaxFitness();
 
         DNA[] newPopulation = new DNA[population.length];
         for (int i = 0; i < population.length; i++) {

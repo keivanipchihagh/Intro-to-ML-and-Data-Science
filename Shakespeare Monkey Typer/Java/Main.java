@@ -10,8 +10,7 @@ public class Main {
 
         Population population = new Population(target, mutationRate, populationCount);
 
-        while (true) {
-            population.naturalSelection();
+        while (true) {            
             population.generate();
             population.calculateFitness();
 
