@@ -14,4 +14,5 @@ This repository is for project examples taken from "Nature Of Code" cahpter 6 - 
 
 ### Resources for TensorFlow:
 - [www.easy-tensorflow.com](https://www.easy-tensorflow.com/tf-tutorials/basics/graph-and-session)
-- [freeCodeCamp.org](https://www.youtube.com/watch?v=tPYj3fFJGjk)
+- [TensorFlow 2.0 Introduction](https://colab.research.google.com/drive/1F_EWVKa8rbMXi3_fG0w7AtcscFq7Hi7B#forceEdit=true&sandboxMode=true)
+- [TensorFlow Core Learning Algorithms](https://colab.research.google.com/drive/1F_EWVKa8rbMXi3_fG0w7AtcscFq7Hi7B#forceEdit=true&sandboxMode=true)
