@@ -2,7 +2,7 @@
 
 import numpy, math, random
 
-bias = 1
+bias = random.random()
 learningRate = 0.00001
 weights = [random.random() for i in range(2)]
 
@@ -19,8 +19,8 @@ def Perceptron(inputs, target):
     weights[0] += (error * learningRate * inputs)
     weights[1] += (error * learningRate * bias)
 
-# Train perceptron for a lot of cycles
-for i in range(1000000):
+# Train perceptron for a lot of cycles (2.5M)
+for i in range(2500000):
     Perceptron(0, 32)
     Perceptron(8, 46.4)
     Perceptron(15, 59)
