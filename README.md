@@ -6,6 +6,7 @@ Some of the project examples in this repository are taken from "Nature Of Code" 
 - [TensorFlow Core Learning Algorithms Documentations - Colab](https://colab.research.google.com/drive/1F_EWVKa8rbMXi3_fG0w7AtcscFq7Hi7B#forceEdit=true&sandboxMode=true)
 - [Machine Learning Course Using TensorFlow - Udacity](https://classroom.udacity.com/courses/ud187)
 - [Machine Learning Crash Course - Google Developers](https://developers.google.com/machine-learning)
+- [A Comprehensive Guide to Convolutional Neural Networks](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
 
 ### Colab Projects:
 - [Celsius to Fahrenheit conversion using ML CNN - Udacity(Colab)](https://colab.research.google.com/github/tensorflow/examples/blob/master/courses/udacity_intro_to_tensorflow_for_deep_learning/l02c01_celsius_to_fahrenheit.ipynb#scrollTo=RSplSnMvnWC-)
