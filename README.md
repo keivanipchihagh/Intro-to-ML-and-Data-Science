@@ -10,7 +10,7 @@ Some of the project examples in this repository are taken from "Nature Of Code" 
 - [Keras - high-level neural networks API](https://keras.io/)
 
 ### Colab Projects:
-- [Celsius to Fahrenheit conversion using ML CNN - Udacity(Colab)](https://colab.research.google.com/github/tensorflow/examples/blob/master/courses/udacity_intro_to_tensorflow_for_deep_learning/l02c01_celsius_to_fahrenheit.ipynb#scrollTo=RSplSnMvnWC-)
+- [Celsius to Fahrenheit conversion using ML Feedforward NN - Udacity(Colab)](https://colab.research.google.com/github/tensorflow/examples/blob/master/courses/udacity_intro_to_tensorflow_for_deep_learning/l02c01_celsius_to_fahrenheit.ipynb#scrollTo=RSplSnMvnWC-)
 
 ### Introduced topics:
 - Evolution of Code (Shakespeare Monkey Typer) (AutonomousRockets)
@@ -23,3 +23,5 @@ Some of the project examples in this repository are taken from "Nature Of Code" 
 - Pool Selection (Shakespeare Monkey Typer) (AutonomousRockets)
 - Accept Reject Technic (Shakespeare Monkey Typer) (AutonomousRockets)
 - A* Path Finding
+- Activation Functions (Sigmoid, Softmax, reLU, ...)
+- Loss Functions (Mean Square Error(MSE), categorical_crossentropy, ...)
