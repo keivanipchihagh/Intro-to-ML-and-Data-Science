@@ -11,7 +11,7 @@ Some of the project examples in this repository are taken from "Nature Of Code" 
 
 ### Colab Projects:
 - [Celsius to Fahrenheit conversion using ML Feedforward NN - Udacity(Colab)](https://colab.research.google.com/github/tensorflow/examples/blob/master/courses/udacity_intro_to_tensorflow_for_deep_learning/l02c01_celsius_to_fahrenheit.ipynb#scrollTo=RSplSnMvnWC-)
-- [Keras | Matplotlib | Numpy | Panda syntax warm up](https://colab.research.google.com/drive/1wY76KPj9myKC8rz5aqz-oUBOB-jg3dsS#scrollTo=5tGd1r7yADbB)
+- [My SandBox](https://colab.research.google.com/drive/1wY76KPj9myKC8rz5aqz-oUBOB-jg3dsS#scrollTo=5tGd1r7yADbB)
 
 ### Introduced topics:
 - Evolution of Code (Shakespeare Monkey Typer) (AutonomousRockets)
