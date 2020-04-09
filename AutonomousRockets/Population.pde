@@ -20,13 +20,13 @@ class Population {
   int lifetime;
 
   // Target location
-  PVector target;
+  Obstacle target;
 
   // Mating pool of rockets
   ArrayList<Rocket> matingPool;
 
   // #1 Population Constructor
-  Population(float mutationRate, int populationCount, int lifetime, PVector target) {
+  Population(float mutationRate, int populationCount, int lifetime, Obstacle target) {
 
     // Initialize fields
     generations = 0;
@@ -51,10 +51,10 @@ class Population {
   }
 
   // Live, wraps all the methods we want to call
-  void live () {
+  void live (ArrayList<Obstacle> obstacles) {
     // Run every rocket
     for (int i = 0; i < population.length; i++) {
-      population[i].run();
+      population[i].run(obstacles);
     }
   }
 
@@ -65,28 +65,28 @@ class Population {
 
     Rocket[] newPopulation = new Rocket[population.length];
     for (int i = 0; i < population.length; i++) {
-      
+
       // Choose two fittest parents' DNAs
       DNA parent1_DNA = acceptReject(maxFitness).dna;
       DNA parent2_DNA = acceptReject(maxFitness).dna;
 
       DNA child_DNA = parent1_DNA.crossover(parent2_DNA);  // Inherit genes
       child_DNA.mutate(mutationRate);  // Mutate genes
-      
+
       newPopulation[i] = new Rocket(new PVector(width / 2, height + 20), child_DNA);
     }
     population = newPopulation;  // Replace the old generation with the new one
     generations++;
   }
-  
+
   // Accept Reject algorithm for calculating weighted probability
   Rocket acceptReject(float maxFitness) {        
     int safe = 0;  // In we couldn't find the appropriate parent, then giveup (Throw error)
     while (safe < 1000) {
-      
+
       Rocket partner = population[(int)random(population.length)];  // Choose a random Rocket
       float prob = random(maxFitness);
-      
+
       if (prob < partner.getFitness())
         return partner;
 

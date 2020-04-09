@@ -4,7 +4,9 @@ Population population;  // Population
 
 int lifeCounter;          // Timer for cycle of generation
 
-PVector target;        // Target position
+Obstacle target;        // Target position
+
+ArrayList<Obstacle> obstacles;  // An array list to keep track of all the obstacles!
 
 void setup() {
   size(640, 360);
@@ -14,11 +16,16 @@ void setup() {
   // Initialize variables
   lifeCounter = 0;
 
-  target = new PVector(width/2, 24);
+  target = new Obstacle(new PVector(width / 2 - 12, 24), 24, 24);
+
 
   // Create a population with a mutation rate, and population max
   float mutationRate = 0.01;
   population = new Population(mutationRate, 100, lifetime, target);
+
+  // Create the obstacle course  
+  obstacles = new ArrayList<Obstacle>();
+  obstacles.add(new Obstacle(new PVector(width / 2 - 100, height / 2), 200, 10));
 }
 
 void draw() {
@@ -26,21 +33,25 @@ void draw() {
 
   // Draw the start and target positions
   fill(0);
-  ellipse(target.x, target.y, 24, 24);
-
 
   // If the generation hasn't ended yet
   if (lifeCounter < lifetime) {
-    population.live();
+    population.live(obstacles);
     lifeCounter++;
     // Otherwise a new generation
   } else {
     lifeCounter = 0;
-    
+
     population.calculateFitness();
-    //population.naturalSelection();
-    population.generate();    
+    population.generate();
   }
+
+  // Draw the obstacles
+  for (Obstacle obs : obstacles) {
+    obs.display();
+  }
+  
+  target.display();
 
   // Display some info
   fill(0);
@@ -51,6 +62,6 @@ void draw() {
 // Move the target if the mouse is pressed
 // System will adapt to new target
 void mousePressed() {
-  target.x = mouseX;
-  target.y = mouseY;
+  target.location.x = mouseX;
+  target.location.y = mouseY;
 }

@@ -6,17 +6,17 @@ class DNA {
 
   // Array of vectors
   PVector[] genes;
-  
+
   // Maximum strength of the vector force
   float maxForce;
 
   // #1 DNA Constructor
   DNA (int lifetime) {
-    
+
     // Initialize fields
     genes = new PVector[lifetime];
     maxForce = 0.1;
-    
+
     // Initialize gene vectors
     for (int i = 0; i < genes.length; i++) {
       genes[i] = PVector.random2D();
@@ -41,10 +41,10 @@ class DNA {
         child.genes[i] = this.genes[i];
       else
         child.genes[i] = partner.genes[i];
-        
+
     return child;
   }
-  
+
   // Mutate genes based on the given probability
   void mutate(float mutationRate) {
     for (int i = 0; i < genes.length; i++)
