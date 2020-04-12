@@ -9,6 +9,7 @@ Some of the project examples in this repository are taken from "Nature Of Code" 
 - [A Comprehensive Guide to Convolutional Neural Networks](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
 - [Keras - high-level neural networks API](https://keras.io/)
 - [Kaggle Open Datasets](https://www.kaggle.com/)
+- [Neural Network | Deep learning (13:25 - 14:13)](https://www.youtube.com/watch?v=aircAruvnKk&t=16s)
 
 ### Colab Projects:
 - [Celsius to Fahrenheit conversion using ML Feedforward NN - Udacity(Colab)](https://colab.research.google.com/github/tensorflow/examples/blob/master/courses/udacity_intro_to_tensorflow_for_deep_learning/l02c01_celsius_to_fahrenheit.ipynb#scrollTo=RSplSnMvnWC-)
