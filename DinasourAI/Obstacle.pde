@@ -1,0 +1,7 @@
+class Obstacle {
+ 
+  public Obstacle() {
+    
+  }
+  
+}
