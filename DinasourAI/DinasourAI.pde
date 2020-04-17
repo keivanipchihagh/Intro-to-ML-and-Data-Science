@@ -18,29 +18,31 @@ void setup() {
   obstacles = new ArrayList<Obstacle>();
   dinasour = new Dinasour(groundZero);
 
-  obstacles.add(new Obstacle(groundZero, speedFlow));
+  obstacles.add(new Cactus(groundZero, speedFlow));  // A cactus at the beginning
 }
 
 void draw() {
   // Reset background on draw
   background(255);
-  
+
   info();  // Display game information
 
   drawGroundZero(groundZero);  // Draw Ground Zero
 
-  dinasour.run();  // Run move(), applyForce(), display()  
+  dinasour.run();  // Run move(), applyForce(), display()
 
-  // Obstacles
+  // Cactus
   if (random(1) < 0.03 && (width - obstacles.get(obstacles.size() - 1).getLocation().x > 150))
-    obstacles.add(new Obstacle(groundZero, speedFlow)); 
+    obstacles.add(new Cactus(groundZero, speedFlow));
+  // Bird
+  if (random(1) < 0.01 && (width - obstacles.get(obstacles.size() - 1).getLocation().x > 150))
+    obstacles.add(new Bird(groundZero, speedFlow));
+
   for (int i = obstacles.size() - 1; i >= 0; i--) {
     obstacles.get(i).run();  // Run move(), display()
-
     // Remove if out of sight
     if (!obstacles.get(i).inPage())
       obstacles.remove(i);
-
     // Check for collision
     if (obstacles.get(i).isCollision(dinasour.getLocation(), dinasour.getSize()))
       noLoop();
@@ -50,10 +52,8 @@ void draw() {
   if (random(1) < 0.08)
     dirts.add(new Dirt(speedFlow, groundZero));
   for (int i = dirts.size() - 1; i >= 0; i--) {
-    dirts.get(i).run();  // Run move(), display()
-
-    // Remove if out of sight
-    if (!dirts.get(i).inPage())
+    dirts.get(i).run();  // Run move(), display()        
+    if (!dirts.get(i).inPage())  // Remove if out of sight
       dirts.remove(i);
   }
 }
@@ -67,7 +67,7 @@ void drawGroundZero(float groundZero) {
 
 // Manual hop function
 void keyPressed() {
-  if (key == ' ')
+  if (keyCode == UP)
     dinasour.hop();
 }
 

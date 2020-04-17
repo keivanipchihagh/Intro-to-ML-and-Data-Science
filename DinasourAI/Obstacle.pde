@@ -1,44 +1,21 @@
 class Obstacle {
 
   // Object fields
-  private PVector location;
-  private PVector size;
-  private float speedFlow;
-  private PImage img;
+  protected PVector location;
+  protected PVector size;
+  protected float speedFlow;
+  protected PImage img;
 
-  // Object Constructor (Used in Setup function)
-  public Obstacle(float groundZero, float speedFlow) {
-    this.speedFlow = speedFlow;    
-    switch((int)random(4)) {
-    case 0: 
-      img = loadImage("Obstacle\\obstacle_1.png"); 
-      break;
-    case 1: 
-      img = loadImage("Obstacle\\obstacle_2.png"); 
-      break;
-    case 2: 
-      img = loadImage("Obstacle\\obstacle_3.png"); 
-      break;
-    case 3: 
-      img = loadImage("Obstacle\\obstacle_4.png"); 
-      break;
-    case 4: 
-      img = loadImage("Obstacle\\obstacle_5.png"); 
-      break;
-    }
-    float sizeDimention = random(0.3, 0.65);
-    this.size = new PVector(img.width * sizeDimention, img.height * sizeDimention);
-    this.location = new PVector(width + size.x, groundZero - size.y);
-  }
+  public Obstacle(float groundZero, float speedFlow) { }
 
   // Encapsulates all methods
-  private void run() {
+  protected void run() {
     this.move();
     this.display();
   }
 
   // Moves the dirt
-  private void move() {
+  protected void move() {
     this.location.x += (-speedFlow);
   }
 
@@ -48,9 +25,9 @@ class Obstacle {
   }
 
   // Displays the object
-  public void display() {    
+  public void display() {
     img.resize((int)size.x, (int)size.y);
-    image(img, location.x, location.y + 5);
+    image(img, location.x, location.y + 5);    
   }
 
   // Checks whether player haa crashed or not
