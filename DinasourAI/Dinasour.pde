@@ -68,20 +68,20 @@ class Dinasour {
     frameIndex++;
     if (frameIndex == 10)
       frameIndex = 0;
-
+    
     image(img, location.x, location.y + 5);
   }
-  
+
   // Getter: Velocity
   public PVector getVelocity() {
     return this.velocity;
   }
-  
+
   // Getter: Location
   public PVector getLocation() {
     return this.location;
   }
-  
+
   // Getter: Size
   public PVector getSize() {
     return this.size;

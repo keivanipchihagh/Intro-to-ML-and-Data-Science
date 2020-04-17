@@ -10,31 +10,38 @@ void setup() {
   smooth();
   size(900, 360);
   background(255);
-  
+
   // Initialize environmental variables
   groundZero = 270.0;
   speedFlow = 5.0;
   dirts = new ArrayList<Dirt>();
   obstacles = new ArrayList<Obstacle>();
   dinasour = new Dinasour(groundZero);
-  
-  obstacles.add(new Obstacle(groundZero, speedFlow)); 
+
+  obstacles.add(new Obstacle(groundZero, speedFlow));
 }
 
 void draw() {
   // Reset background on draw
   background(255);
+  
+  info();  // Display game information
 
-  dinasour.run();
-  drawGroundZero(groundZero);
+  drawGroundZero(groundZero);  // Draw Ground Zero
+
+  dinasour.run();  // Run move(), applyForce(), display()  
 
   // Obstacles
   if (random(1) < 0.03 && (width - obstacles.get(obstacles.size() - 1).getLocation().x > 150))
     obstacles.add(new Obstacle(groundZero, speedFlow)); 
   for (int i = obstacles.size() - 1; i >= 0; i--) {
-    obstacles.get(i).run();
+    obstacles.get(i).run();  // Run move(), display()
+
+    // Remove if out of sight
     if (!obstacles.get(i).inPage())
       obstacles.remove(i);
+
+    // Check for collision
     if (obstacles.get(i).isCollision(dinasour.getLocation(), dinasour.getSize()))
       noLoop();
   }
@@ -43,7 +50,9 @@ void draw() {
   if (random(1) < 0.08)
     dirts.add(new Dirt(speedFlow, groundZero));
   for (int i = dirts.size() - 1; i >= 0; i--) {
-    dirts.get(i).run();
+    dirts.get(i).run();  // Run move(), display()
+
+    // Remove if out of sight
     if (!dirts.get(i).inPage())
       dirts.remove(i);
   }
@@ -60,4 +69,9 @@ void drawGroundZero(float groundZero) {
 void keyPressed() {
   if (key == ' ')
     dinasour.hop();
+}
+
+public void info() {
+  fill(0);
+  text("Developed by: Keivan Ipchi Hagh", width - 190, 20);
 }

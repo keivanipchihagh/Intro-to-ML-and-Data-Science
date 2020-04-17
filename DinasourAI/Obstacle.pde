@@ -3,13 +3,11 @@ class Obstacle {
   // Object fields
   private PVector location;
   private PVector size;
-  private float groundZero;
   private float speedFlow;
   private PImage img;
 
   // Object Constructor (Used in Setup function)
   public Obstacle(float groundZero, float speedFlow) {
-    this.groundZero = groundZero;
     this.speedFlow = speedFlow;    
     switch((int)random(4)) {
     case 0: 
@@ -28,7 +26,8 @@ class Obstacle {
       img = loadImage("Obstacle\\obstacle_5.png"); 
       break;
     }
-    this.size = new PVector(img.width * 0.75, img.height * 0.75);
+    float sizeDimention = random(0.3, 0.65);
+    this.size = new PVector(img.width * sizeDimention, img.height * sizeDimention);
     this.location = new PVector(width + size.x, groundZero - size.y);
   }
 
@@ -49,17 +48,14 @@ class Obstacle {
   }
 
   // Displays the object
-  public void display() {
+  public void display() {    
     img.resize((int)size.x, (int)size.y);
     image(img, location.x, location.y + 5);
   }
 
   // Checks whether player haa crashed or not
   public boolean isCollision(PVector din_location, PVector din_size) {
-    if (din_location.y + din_size.y >= location.y + size.y && (din_location.x + din_size.x >= location.x && ))
-      return true;
-    else
-      return false;
+    return (din_location.y + din_size.y - 25 >= location.y && (din_location.x + din_size.x >= location.x && din_location.x <= location.x + size.x)) ? true : false;
   }
 
   // Getter: Location
