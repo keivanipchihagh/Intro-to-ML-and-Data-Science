@@ -39,4 +39,9 @@ class Obstacle {
   public PVector getLocation() {
     return this.location;
   }
+  
+  // Getter: Size
+  public PVector getSize() {
+    return this.size;
+  }
 }
