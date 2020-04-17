@@ -2,6 +2,7 @@
 private float groundZero;
 private float speedFlow;
 private ArrayList<Dirt> dirts;
+private ArrayList<Obstacle> obstacles;
 private Dinasour dinasour;
 
 void setup() {
@@ -9,24 +10,37 @@ void setup() {
   smooth();
   size(900, 360);
   background(255);
-
+  
   // Initialize environmental variables
-  groundZero = 240.0;
-  speedFlow = 7.0;
+  groundZero = 270.0;
+  speedFlow = 5.0;
   dirts = new ArrayList<Dirt>();
-  dinasour = new Dinasour(groundZero, speedFlow);
+  obstacles = new ArrayList<Obstacle>();
+  dinasour = new Dinasour(groundZero);
+  
+  obstacles.add(new Obstacle(groundZero, speedFlow)); 
 }
 
 void draw() {
   // Reset background on draw
   background(255);
-  
+
   dinasour.run();
   drawGroundZero(groundZero);
 
+  // Obstacles
+  if (random(1) < 0.03 && (width - obstacles.get(obstacles.size() - 1).getLocation().x > 150))
+    obstacles.add(new Obstacle(groundZero, speedFlow)); 
+  for (int i = obstacles.size() - 1; i >= 0; i--) {
+    obstacles.get(i).run();
+    if (!obstacles.get(i).inPage())
+      obstacles.remove(i);
+    if (obstacles.get(i).isCollision(dinasour.getLocation(), dinasour.getSize()))
+      noLoop();
+  }
 
-  // Dirty part
-  if (random(1) < 0.07)
+  // Dirts
+  if (random(1) < 0.08)
     dirts.add(new Dirt(speedFlow, groundZero));
   for (int i = dirts.size() - 1; i >= 0; i--) {
     dirts.get(i).run();
