@@ -59,8 +59,8 @@ def valid(baord, number, position):
     
     return True
 
+# Solves the problem (Recursive)
 def solve(board):
-
     empty = get_empty(board = board)
     if not empty:
         return True
