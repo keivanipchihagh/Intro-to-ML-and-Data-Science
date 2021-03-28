@@ -37,7 +37,7 @@ My journey to learn fast-paced Machine Learning using Tensor Flow APIs, Sklearn 
 #### RoadMaps
 - [Machine Learning Roadmap 2020](https://whimsical.com/machine-learning-roadmap-2020-CA7f3ykvXpnJ9Az32vYXva)
 
-#### Interview Qustions
+#### Interview Questions
 - [stratascratch](https://stratascratch.com/)
 
 #### Project Ideas
