@@ -11,6 +11,7 @@ My journey to learn fast-paced Machine Learning using Tensor Flow APIs, Sklearn 
 - [DataSet Repositories](#dataset-repositories)
 - [RoadMaps](#roadmaps)
 - [Project Ideas](#project-ideas)
+- [Interview Questions](#interview-questions)
 
 ### Links
 #### Introduction
@@ -35,6 +36,9 @@ My journey to learn fast-paced Machine Learning using Tensor Flow APIs, Sklearn 
 
 #### RoadMaps
 - [Machine Learning Roadmap 2020](https://whimsical.com/machine-learning-roadmap-2020-CA7f3ykvXpnJ9Az32vYXva)
+
+#### Interview Qustions
+- [stratascratch](https://stratascratch.com/)
 
 #### Project Ideas
 - [Data Fair - Machine Learning Project Ideas](https://data-flair.training/blogs/machine-learning-project-ideas/)
